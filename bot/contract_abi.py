@@ -1,6 +1,9 @@
+from dotenv import load_dotenv
+import os
 
-CONTRACT_ADDRESS = '0x1DBAc197B13eB3CCfd62bFf297eF75Fc382f9bFf' 
+load_dotenv()
 
+CONTRACT_ADDRESS = os.getenv('CONTRACT_ADDRESS')
 CONTRACT_ABI = [
    {
       "inputs": [],
